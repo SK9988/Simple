@@ -1,25 +1,65 @@
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>test</title>
+<title>Login Page</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+}
+
+.container {
+  width: 400px;
+  margin: 100px auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
+
+.btn {
+  background-color: #000088;
+  color: white;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0000cc;
+}
+</style>
 </head>
 <body>
-<p>my name is rahul this is my first webpage</p>
-	<script>
-		const params = new Proxy(new URLSearchParams(window.location.search), {
-		  get: (searchParams, prop) => searchParams.get(prop),
-		});
+<div class="container">
+  <h1>Login</h1>
 
-		let hash = params.hash;
-		let unhash = "";
-        for (var i=0; i<hash.length; i++) {
-            ascii = hash.charCodeAt(i) - 2;
-            unhash += String.fromCharCode(ascii);
-        }
-		window.location.href = unhash;
+  <form action="/login" method="post">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" id="username" name="username" required>
+    </div>
 
-	</script>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" name="password" required>
+    </div>
+
+    <button type="submit" class="btn">Login</button>
+  </form>
+
+  <p>Don't have an account? <a href="/register">Register here</a></p>
+</div>
 </body>
 </html>
+
